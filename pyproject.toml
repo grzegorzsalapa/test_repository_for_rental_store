@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rental_store_test_repo_robot_idziegrzesprzezbobrow"
+version = "0.0.1"
+description = "Repo for testing rental_store API."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name="Greg", email="" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "robotframework==6.0.2",
+    "robotframework-requests==0.9.4"
+]
+packages = [
+    {include = "rental_store"},
+    {exclude = "tests"}
+]
+exclude = [
+    ".venv",
+    ".gitignore",
+    ".pytest_cache"
+]
+

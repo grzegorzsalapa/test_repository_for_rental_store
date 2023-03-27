@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.6 on linux)" generated="20230327 10:09:17.276" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests" source="/home/greg/Programming/Git/test_repository_for_rental_store_robot/tests">
+<suite id="s1-s1" name="Tests" source="/home/greg/Programming/Git/test_repository_for_rental_store_robot/tests/tests.robot">
+<test id="s1-s1-t1" name="Post request to create new customer" line="10">
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${HTTP_LOCAL_SERVER}/customers/add</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20230327 10:09:17.353" level="INFO">POST Request : url=http://127.0.0.1:8080/customers/add 
+ path_url=/customers/add 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20230327 10:09:17.353" level="INFO">POST Response : url=http://127.0.0.1:8080/customers/add 
+ status=201, reason=Created 
+ headers={'date': 'Mon, 27 Mar 2023 08:09:16 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} 
+ body={"id":14,"rentals":[]} 
+ </msg>
+<msg timestamp="20230327 10:09:17.354" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230327 10:09:17.350" endtime="20230327 10:09:17.354"/>
+</kw>
+<status status="PASS" starttime="20230327 10:09:17.349" endtime="20230327 10:09:17.354"/>
+</test>
+<test id="s1-s1-t2" name="Post request to create new film" line="13">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>title=IT</arg>
+<arg>type=Old</arg>
+<arg>items_total=5</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230327 10:09:17.355" level="INFO">${body} = {'title': 'IT', 'type': 'Old', 'items_total': '5'}</msg>
+<status status="PASS" starttime="20230327 10:09:17.354" endtime="20230327 10:09:17.355"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${HTTP_LOCAL_SERVER}/films/add</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20230327 10:09:17.358" level="INFO">POST Request : url=http://127.0.0.1:8080/films/add 
+ path_url=/films/add 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '50', 'Content-Type': 'application/json'} 
+ body=b'{"title": "IT", "type": "Old", "items_total": "5"}' 
+ </msg>
+<msg timestamp="20230327 10:09:17.359" level="INFO">POST Response : url=http://127.0.0.1:8080/films/add 
+ status=201, reason=Created 
+ headers={'date': 'Mon, 27 Mar 2023 08:09:16 GMT', 'server': 'uvicorn', 'content-length': '70', 'content-type': 'application/json'} 
+ body={"id":7,"title":"IT","type":"Old","items_total":5,"available_items":5} 
+ </msg>
+<msg timestamp="20230327 10:09:17.359" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230327 10:09:17.355" endtime="20230327 10:09:17.359"/>
+</kw>
+<status status="PASS" starttime="20230327 10:09:17.354" endtime="20230327 10:09:17.359"/>
+</test>
+<status status="PASS" starttime="20230327 10:09:17.294" endtime="20230327 10:09:17.359"/>
+</suite>
+<status status="PASS" starttime="20230327 10:09:17.276" endtime="20230327 10:09:17.360"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Tests">Tests.Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
