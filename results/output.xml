@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.10.6 on linux)" generated="20230327 10:09:17.276" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.10.6 on linux)" generated="20230327 11:16:18.982" rpa="false" schemaversion="3">
 <suite id="s1" name="Tests" source="/home/greg/Programming/Git/test_repository_for_rental_store_robot/tests">
 <suite id="s1-s1" name="Tests" source="/home/greg/Programming/Git/test_repository_for_rental_store_robot/tests/tests.robot">
 <test id="s1-s1-t1" name="Post request to create new customer" line="10">
@@ -7,64 +7,134 @@
 <var>${response}</var>
 <arg>${HTTP_LOCAL_SERVER}/customers/add</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230327 10:09:17.353" level="INFO">POST Request : url=http://127.0.0.1:8080/customers/add 
+<msg timestamp="20230327 11:16:19.064" level="INFO">POST Request : url=http://127.0.0.1:8080/customers/add 
  path_url=/customers/add 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg timestamp="20230327 10:09:17.353" level="INFO">POST Response : url=http://127.0.0.1:8080/customers/add 
+<msg timestamp="20230327 11:16:19.064" level="INFO">POST Response : url=http://127.0.0.1:8080/customers/add 
  status=201, reason=Created 
- headers={'date': 'Mon, 27 Mar 2023 08:09:16 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} 
- body={"id":14,"rentals":[]} 
+ headers={'date': 'Mon, 27 Mar 2023 09:16:18 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} 
+ body={"id":28,"rentals":[]} 
  </msg>
-<msg timestamp="20230327 10:09:17.354" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230327 10:09:17.350" endtime="20230327 10:09:17.354"/>
+<msg timestamp="20230327 11:16:19.065" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230327 11:16:19.057" endtime="20230327 11:16:19.065"/>
 </kw>
-<status status="PASS" starttime="20230327 10:09:17.349" endtime="20230327 10:09:17.354"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${customer_id}</var>
+<arg>${response.json()}[id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230327 11:16:19.068" level="INFO">${customer_id} = 28</msg>
+<status status="PASS" starttime="20230327 11:16:19.066" endtime="20230327 11:16:19.068"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${customer_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230327 11:16:19.068" level="INFO">${customer_id} = 28</msg>
+<status status="PASS" starttime="20230327 11:16:19.068" endtime="20230327 11:16:19.068"/>
+</kw>
+<status status="PASS" starttime="20230327 11:16:19.057" endtime="20230327 11:16:19.068"/>
 </test>
-<test id="s1-s1-t2" name="Post request to create new film" line="13">
+<test id="s1-s1-t2" name="Post request to create new film" line="15">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${body}</var>
 <arg>title=IT</arg>
 <arg>type=Old</arg>
 <arg>items_total=5</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230327 10:09:17.355" level="INFO">${body} = {'title': 'IT', 'type': 'Old', 'items_total': '5'}</msg>
-<status status="PASS" starttime="20230327 10:09:17.354" endtime="20230327 10:09:17.355"/>
+<msg timestamp="20230327 11:16:19.070" level="INFO">${body} = {'title': 'IT', 'type': 'Old', 'items_total': '5'}</msg>
+<status status="PASS" starttime="20230327 11:16:19.069" endtime="20230327 11:16:19.070"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${HTTP_LOCAL_SERVER}/films/add</arg>
 <arg>json=${body}</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230327 10:09:17.358" level="INFO">POST Request : url=http://127.0.0.1:8080/films/add 
+<msg timestamp="20230327 11:16:19.075" level="INFO">POST Request : url=http://127.0.0.1:8080/films/add 
  path_url=/films/add 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '50', 'Content-Type': 'application/json'} 
  body=b'{"title": "IT", "type": "Old", "items_total": "5"}' 
  </msg>
-<msg timestamp="20230327 10:09:17.359" level="INFO">POST Response : url=http://127.0.0.1:8080/films/add 
+<msg timestamp="20230327 11:16:19.075" level="INFO">POST Response : url=http://127.0.0.1:8080/films/add 
  status=201, reason=Created 
- headers={'date': 'Mon, 27 Mar 2023 08:09:16 GMT', 'server': 'uvicorn', 'content-length': '70', 'content-type': 'application/json'} 
- body={"id":7,"title":"IT","type":"Old","items_total":5,"available_items":5} 
+ headers={'date': 'Mon, 27 Mar 2023 09:16:18 GMT', 'server': 'uvicorn', 'content-length': '71', 'content-type': 'application/json'} 
+ body={"id":21,"title":"IT","type":"Old","items_total":5,"available_items":5} 
  </msg>
-<msg timestamp="20230327 10:09:17.359" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230327 10:09:17.355" endtime="20230327 10:09:17.359"/>
+<msg timestamp="20230327 11:16:19.075" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230327 11:16:19.070" endtime="20230327 11:16:19.075"/>
 </kw>
-<status status="PASS" starttime="20230327 10:09:17.354" endtime="20230327 10:09:17.359"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${film_id}</var>
+<arg>${response.json()}[id]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230327 11:16:19.076" level="INFO">${film_id} = 21</msg>
+<status status="PASS" starttime="20230327 11:16:19.075" endtime="20230327 11:16:19.076"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${film_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230327 11:16:19.076" level="INFO">${film_id} = 21</msg>
+<status status="PASS" starttime="20230327 11:16:19.076" endtime="20230327 11:16:19.076"/>
+</kw>
+<status status="PASS" starttime="20230327 11:16:19.069" endtime="20230327 11:16:19.076"/>
 </test>
-<status status="PASS" starttime="20230327 10:09:17.294" endtime="20230327 10:09:17.359"/>
+<test id="s1-s1-t3" name="POST to rent film by customer" line="21">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${rented_film}</var>
+<arg>film_id=${film_id}</arg>
+<arg>up_front_days=1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230327 11:16:19.077" level="INFO">${rented_film} = {'film_id': 21, 'up_front_days': '1'}</msg>
+<status status="PASS" starttime="20230327 11:16:19.077" endtime="20230327 11:16:19.077"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${rented_films_list}</var>
+<arg>${rented_film}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230327 11:16:19.078" level="INFO">${rented_films_list} = [{'film_id': 21, 'up_front_days': '1'}]</msg>
+<status status="PASS" starttime="20230327 11:16:19.078" endtime="20230327 11:16:19.078"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>customer_id=${customer_id}</arg>
+<arg>rented_films=${rented_films_list}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230327 11:16:19.078" level="INFO">${body} = {'customer_id': 28, 'rented_films': [{'film_id': 21, 'up_front_days': '1'}]}</msg>
+<status status="PASS" starttime="20230327 11:16:19.078" endtime="20230327 11:16:19.078"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${HTTP_LOCAL_SERVER}/films/rent</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20230327 11:16:19.087" level="INFO">POST Request : url=http://127.0.0.1:8080/films/rent 
+ path_url=/films/rent 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '76', 'Content-Type': 'application/json'} 
+ body=b'{"customer_id": 28, "rented_films": [{"film_id": 21, "up_front_days": "1"}]}' 
+ </msg>
+<msg timestamp="20230327 11:16:19.087" level="INFO">POST Response : url=http://127.0.0.1:8080/films/rent 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 27 Mar 2023 09:16:18 GMT', 'server': 'uvicorn', 'content-length': '63', 'content-type': 'application/json'} 
+ body={"rented_films":[{"film_id":21,"charge":150,"currency":"SEK"}]} 
+ </msg>
+<msg timestamp="20230327 11:16:19.087" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230327 11:16:19.079" endtime="20230327 11:16:19.087"/>
+</kw>
+<status status="PASS" starttime="20230327 11:16:19.077" endtime="20230327 11:16:19.088"/>
+</test>
+<status status="PASS" starttime="20230327 11:16:19.000" endtime="20230327 11:16:19.090"/>
 </suite>
-<status status="PASS" starttime="20230327 10:09:17.276" endtime="20230327 10:09:17.360"/>
+<status status="PASS" starttime="20230327 11:16:18.983" endtime="20230327 11:16:19.092"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
-<stat pass="2" fail="0" skip="0" id="s1-s1" name="Tests">Tests.Tests</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1" name="Tests">Tests.Tests</stat>
 </suite>
 </statistics>
 <errors>
