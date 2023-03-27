@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.10.6 on linux)" generated="20230327 11:36:05.037" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.10.6 on linux)" generated="20230327 12:25:25.255" rpa="false" schemaversion="3">
 <suite id="s1" name="Tests" source="/home/greg/Programming/Git/test_repository_for_rental_store_robot/tests">
 <suite id="s1-s1" name="Tests" source="/home/greg/Programming/Git/test_repository_for_rental_store_robot/tests/tests.robot">
 <test id="s1-s1-t1" name="Post request to create new customer" line="9">
@@ -7,39 +7,39 @@
 <var>${response}</var>
 <arg>${HTTP_LOCAL_SERVER}/customers/add</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230327 11:36:05.118" level="INFO">POST Request : url=http://127.0.0.1:8080/customers/add 
+<msg timestamp="20230327 12:25:25.348" level="INFO">POST Request : url=http://127.0.0.1:8080/customers/add 
  path_url=/customers/add 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg timestamp="20230327 11:36:05.118" level="INFO">POST Response : url=http://127.0.0.1:8080/customers/add 
+<msg timestamp="20230327 12:25:25.348" level="INFO">POST Response : url=http://127.0.0.1:8080/customers/add 
  status=201, reason=Created 
- headers={'date': 'Mon, 27 Mar 2023 09:36:04 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} 
- body={"id":36,"rentals":[]} 
+ headers={'date': 'Mon, 27 Mar 2023 10:25:24 GMT', 'server': 'uvicorn', 'content-length': '22', 'content-type': 'application/json'} 
+ body={"id":65,"rentals":[]} 
  </msg>
-<msg timestamp="20230327 11:36:05.118" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230327 11:36:05.114" endtime="20230327 11:36:05.118"/>
+<msg timestamp="20230327 12:25:25.349" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230327 12:25:25.344" endtime="20230327 12:25:25.349"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>201</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20230327 11:36:05.119" endtime="20230327 11:36:05.119"/>
+<status status="PASS" starttime="20230327 12:25:25.349" endtime="20230327 12:25:25.349"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${customer_id}</var>
 <arg>${response.json()}[id]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230327 11:36:05.120" level="INFO">${customer_id} = 36</msg>
-<status status="PASS" starttime="20230327 11:36:05.119" endtime="20230327 11:36:05.120"/>
+<msg timestamp="20230327 12:25:25.350" level="INFO">${customer_id} = 65</msg>
+<status status="PASS" starttime="20230327 12:25:25.349" endtime="20230327 12:25:25.350"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${customer_id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230327 11:36:05.122" level="INFO">${customer_id} = 36</msg>
-<status status="PASS" starttime="20230327 11:36:05.121" endtime="20230327 11:36:05.122"/>
+<msg timestamp="20230327 12:25:25.351" level="INFO">${customer_id} = 65</msg>
+<status status="PASS" starttime="20230327 12:25:25.350" endtime="20230327 12:25:25.351"/>
 </kw>
-<status status="PASS" starttime="20230327 11:36:05.113" endtime="20230327 11:36:05.122"/>
+<status status="PASS" starttime="20230327 12:25:25.344" endtime="20230327 12:25:25.351"/>
 </test>
 <test id="s1-s1-t2" name="Post request to create new film" line="15">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -48,47 +48,47 @@
 <arg>type=Old</arg>
 <arg>items_total=5</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230327 11:36:05.124" level="INFO">${body} = {'title': 'IT', 'type': 'Old', 'items_total': '5'}</msg>
-<status status="PASS" starttime="20230327 11:36:05.123" endtime="20230327 11:36:05.124"/>
+<msg timestamp="20230327 12:25:25.352" level="INFO">${body} = {'title': 'IT', 'type': 'Old', 'items_total': '5'}</msg>
+<status status="PASS" starttime="20230327 12:25:25.352" endtime="20230327 12:25:25.353"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${HTTP_LOCAL_SERVER}/films/add</arg>
 <arg>json=${body}</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230327 11:36:05.131" level="INFO">POST Request : url=http://127.0.0.1:8080/films/add 
+<msg timestamp="20230327 12:25:25.368" level="INFO">POST Request : url=http://127.0.0.1:8080/films/add 
  path_url=/films/add 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '50', 'Content-Type': 'application/json'} 
  body=b'{"title": "IT", "type": "Old", "items_total": "5"}' 
  </msg>
-<msg timestamp="20230327 11:36:05.131" level="INFO">POST Response : url=http://127.0.0.1:8080/films/add 
+<msg timestamp="20230327 12:25:25.368" level="INFO">POST Response : url=http://127.0.0.1:8080/films/add 
  status=201, reason=Created 
- headers={'date': 'Mon, 27 Mar 2023 09:36:04 GMT', 'server': 'uvicorn', 'content-length': '71', 'content-type': 'application/json'} 
- body={"id":29,"title":"IT","type":"Old","items_total":5,"available_items":5} 
+ headers={'date': 'Mon, 27 Mar 2023 10:25:24 GMT', 'server': 'uvicorn', 'content-length': '71', 'content-type': 'application/json'} 
+ body={"id":58,"title":"IT","type":"Old","items_total":5,"available_items":5} 
  </msg>
-<msg timestamp="20230327 11:36:05.131" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230327 11:36:05.125" endtime="20230327 11:36:05.131"/>
+<msg timestamp="20230327 12:25:25.368" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230327 12:25:25.353" endtime="20230327 12:25:25.368"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>201</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20230327 11:36:05.131" endtime="20230327 11:36:05.131"/>
+<status status="PASS" starttime="20230327 12:25:25.368" endtime="20230327 12:25:25.368"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${film_id}</var>
 <arg>${response.json()}[id]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230327 11:36:05.132" level="INFO">${film_id} = 29</msg>
-<status status="PASS" starttime="20230327 11:36:05.132" endtime="20230327 11:36:05.132"/>
+<msg timestamp="20230327 12:25:25.370" level="INFO">${film_id} = 58</msg>
+<status status="PASS" starttime="20230327 12:25:25.369" endtime="20230327 12:25:25.370"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${film_id}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230327 11:36:05.133" level="INFO">${film_id} = 29</msg>
-<status status="PASS" starttime="20230327 11:36:05.132" endtime="20230327 11:36:05.133"/>
+<msg timestamp="20230327 12:25:25.371" level="INFO">${film_id} = 58</msg>
+<status status="PASS" starttime="20230327 12:25:25.370" endtime="20230327 12:25:25.371"/>
 </kw>
-<status status="PASS" starttime="20230327 11:36:05.123" endtime="20230327 11:36:05.133"/>
+<status status="PASS" starttime="20230327 12:25:25.351" endtime="20230327 12:25:25.372"/>
 </test>
 <test id="s1-s1-t3" name="POST to rent film by customer" line="22">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -96,112 +96,227 @@
 <arg>film_id=${film_id}</arg>
 <arg>up_front_days=1</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230327 11:36:05.134" level="INFO">${rented_film} = {'film_id': 29, 'up_front_days': '1'}</msg>
-<status status="PASS" starttime="20230327 11:36:05.134" endtime="20230327 11:36:05.134"/>
+<msg timestamp="20230327 12:25:25.373" level="INFO">${rented_film} = {'film_id': 58, 'up_front_days': '1'}</msg>
+<status status="PASS" starttime="20230327 12:25:25.372" endtime="20230327 12:25:25.373"/>
 </kw>
 <kw name="Create List" library="BuiltIn">
 <var>${rented_films_list}</var>
 <arg>${rented_film}</arg>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20230327 11:36:05.134" level="INFO">${rented_films_list} = [{'film_id': 29, 'up_front_days': '1'}]</msg>
-<status status="PASS" starttime="20230327 11:36:05.134" endtime="20230327 11:36:05.134"/>
+<msg timestamp="20230327 12:25:25.374" level="INFO">${rented_films_list} = [{'film_id': 58, 'up_front_days': '1'}]</msg>
+<status status="PASS" starttime="20230327 12:25:25.373" endtime="20230327 12:25:25.374"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${body}</var>
 <arg>customer_id=${customer_id}</arg>
 <arg>rented_films=${rented_films_list}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230327 11:36:05.135" level="INFO">${body} = {'customer_id': 36, 'rented_films': [{'film_id': 29, 'up_front_days': '1'}]}</msg>
-<status status="PASS" starttime="20230327 11:36:05.134" endtime="20230327 11:36:05.135"/>
+<msg timestamp="20230327 12:25:25.374" level="INFO">${body} = {'customer_id': 65, 'rented_films': [{'film_id': 58, 'up_front_days': '1'}]}</msg>
+<status status="PASS" starttime="20230327 12:25:25.374" endtime="20230327 12:25:25.374"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${HTTP_LOCAL_SERVER}/films/rent</arg>
 <arg>json=${body}</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230327 11:36:05.142" level="INFO">POST Request : url=http://127.0.0.1:8080/films/rent 
+<msg timestamp="20230327 12:25:25.392" level="INFO">POST Request : url=http://127.0.0.1:8080/films/rent 
  path_url=/films/rent 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '76', 'Content-Type': 'application/json'} 
- body=b'{"customer_id": 36, "rented_films": [{"film_id": 29, "up_front_days": "1"}]}' 
+ body=b'{"customer_id": 65, "rented_films": [{"film_id": 58, "up_front_days": "1"}]}' 
  </msg>
-<msg timestamp="20230327 11:36:05.142" level="INFO">POST Response : url=http://127.0.0.1:8080/films/rent 
+<msg timestamp="20230327 12:25:25.392" level="INFO">POST Response : url=http://127.0.0.1:8080/films/rent 
  status=200, reason=OK 
- headers={'date': 'Mon, 27 Mar 2023 09:36:04 GMT', 'server': 'uvicorn', 'content-length': '63', 'content-type': 'application/json'} 
- body={"rented_films":[{"film_id":29,"charge":150,"currency":"SEK"}]} 
+ headers={'date': 'Mon, 27 Mar 2023 10:25:24 GMT', 'server': 'uvicorn', 'content-length': '63', 'content-type': 'application/json'} 
+ body={"rented_films":[{"film_id":58,"charge":150,"currency":"SEK"}]} 
  </msg>
-<msg timestamp="20230327 11:36:05.143" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230327 11:36:05.135" endtime="20230327 11:36:05.143"/>
+<msg timestamp="20230327 12:25:25.392" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230327 12:25:25.375" endtime="20230327 12:25:25.392"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20230327 11:36:05.143" endtime="20230327 11:36:05.143"/>
+<status status="PASS" starttime="20230327 12:25:25.392" endtime="20230327 12:25:25.393"/>
 </kw>
-<status status="PASS" starttime="20230327 11:36:05.133" endtime="20230327 11:36:05.144"/>
+<status status="PASS" starttime="20230327 12:25:25.372" endtime="20230327 12:25:25.393"/>
 </test>
-<test id="s1-s1-t4" name="POST to return film by customer" line="29">
+<test id="s1-s1-t4" name="GET customer to check their Rentals after rent" line="29">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${HTTP_LOCAL_SERVER}/customers/${customer_id}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230327 12:25:25.406" level="INFO">GET Request : url=http://127.0.0.1:8080/customers/65 
+ path_url=/customers/65 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230327 12:25:25.406" level="INFO">GET Response : url=http://127.0.0.1:8080/customers/65 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 27 Mar 2023 10:25:24 GMT', 'server': 'uvicorn', 'content-length': '203', 'content-type': 'application/json'} 
+ body={"id":65,"rentals":[{"request_id":"28d94ef6-fa1f-44ff-9836-734d2dca7b92","customer_id":65,"film_id":58,"date_of_rent":"2023-03-27","up_front_days":1,"charge":150,"date_of_return":null,"surcharge":null}]} 
+ </msg>
+<msg timestamp="20230327 12:25:25.407" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230327 12:25:25.396" endtime="20230327 12:25:25.407"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230327 12:25:25.407" endtime="20230327 12:25:25.408"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.json()}[id]</arg>
+<arg>${customer_id}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20230327 12:25:25.409" endtime="20230327 12:25:25.410"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.json()}[rentals][0][film_id]</arg>
+<arg>${film_id}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20230327 12:25:25.410" endtime="20230327 12:25:25.414"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.json()}[rentals][0][customer_id]</arg>
+<arg>${customer_id}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20230327 12:25:25.414" endtime="20230327 12:25:25.416"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.json()}[rentals][0][up_front_days]</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20230327 12:25:25.418" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230327 12:25:25.417" endtime="20230327 12:25:25.418"/>
+</kw>
+<status status="PASS" starttime="20230327 12:25:25.394" endtime="20230327 12:25:25.419"/>
+</test>
+<test id="s1-s1-t5" name="POST to return film by customer" line="37">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${returned_film}</var>
 <arg>film_id=${film_id}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230327 11:36:05.145" level="INFO">${returned_film} = {'film_id': 29}</msg>
-<status status="PASS" starttime="20230327 11:36:05.145" endtime="20230327 11:36:05.146"/>
+<msg timestamp="20230327 12:25:25.421" level="INFO">${returned_film} = {'film_id': 58}</msg>
+<status status="PASS" starttime="20230327 12:25:25.420" endtime="20230327 12:25:25.421"/>
 </kw>
 <kw name="Create List" library="BuiltIn">
 <var>${returned_films_list}</var>
 <arg>${returned_film}</arg>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20230327 11:36:05.147" level="INFO">${returned_films_list} = [{'film_id': 29}]</msg>
-<status status="PASS" starttime="20230327 11:36:05.146" endtime="20230327 11:36:05.147"/>
+<msg timestamp="20230327 12:25:25.422" level="INFO">${returned_films_list} = [{'film_id': 58}]</msg>
+<status status="PASS" starttime="20230327 12:25:25.421" endtime="20230327 12:25:25.422"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${body}</var>
 <arg>customer_id=${customer_id}</arg>
 <arg>returned_films=${returned_films_list}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230327 11:36:05.149" level="INFO">${body} = {'customer_id': 36, 'returned_films': [{'film_id': 29}]}</msg>
-<status status="PASS" starttime="20230327 11:36:05.148" endtime="20230327 11:36:05.149"/>
+<msg timestamp="20230327 12:25:25.422" level="INFO">${body} = {'customer_id': 65, 'returned_films': [{'film_id': 58}]}</msg>
+<status status="PASS" starttime="20230327 12:25:25.422" endtime="20230327 12:25:25.422"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${HTTP_LOCAL_SERVER}/films/return</arg>
 <arg>json=${body}</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230327 11:36:05.161" level="INFO">POST Request : url=http://127.0.0.1:8080/films/return 
+<msg timestamp="20230327 12:25:25.436" level="INFO">POST Request : url=http://127.0.0.1:8080/films/return 
  path_url=/films/return 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '56', 'Content-Type': 'application/json'} 
- body=b'{"customer_id": 36, "returned_films": [{"film_id": 29}]}' 
+ body=b'{"customer_id": 65, "returned_films": [{"film_id": 58}]}' 
  </msg>
-<msg timestamp="20230327 11:36:05.162" level="INFO">POST Response : url=http://127.0.0.1:8080/films/return 
+<msg timestamp="20230327 12:25:25.436" level="INFO">POST Response : url=http://127.0.0.1:8080/films/return 
  status=200, reason=OK 
- headers={'date': 'Mon, 27 Mar 2023 09:36:04 GMT', 'server': 'uvicorn', 'content-length': '66', 'content-type': 'application/json'} 
- body={"returned_films":[{"film_id":29,"surcharge":0,"currency":"SEK"}]} 
+ headers={'date': 'Mon, 27 Mar 2023 10:25:24 GMT', 'server': 'uvicorn', 'content-length': '66', 'content-type': 'application/json'} 
+ body={"returned_films":[{"film_id":58,"surcharge":0,"currency":"SEK"}]} 
  </msg>
-<msg timestamp="20230327 11:36:05.162" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230327 11:36:05.150" endtime="20230327 11:36:05.162"/>
+<msg timestamp="20230327 12:25:25.436" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230327 12:25:25.422" endtime="20230327 12:25:25.436"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20230327 11:36:05.162" endtime="20230327 11:36:05.164"/>
+<status status="PASS" starttime="20230327 12:25:25.436" endtime="20230327 12:25:25.437"/>
 </kw>
-<status status="PASS" starttime="20230327 11:36:05.144" endtime="20230327 11:36:05.164"/>
+<status status="PASS" starttime="20230327 12:25:25.420" endtime="20230327 12:25:25.437"/>
 </test>
-<status status="PASS" starttime="20230327 11:36:05.058" endtime="20230327 11:36:05.165"/>
+<test id="s1-s1-t6" name="GET customer to check their Rentals after return" line="44">
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${HTTP_LOCAL_SERVER}/customers/${customer_id}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230327 12:25:25.446" level="INFO">GET Request : url=http://127.0.0.1:8080/customers/65 
+ path_url=/customers/65 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230327 12:25:25.446" level="INFO">GET Response : url=http://127.0.0.1:8080/customers/65 
+ status=200, reason=OK 
+ headers={'date': 'Mon, 27 Mar 2023 10:25:24 GMT', 'server': 'uvicorn', 'content-length': '208', 'content-type': 'application/json'} 
+ body={"id":65,"rentals":[{"request_id":"28d94ef6-fa1f-44ff-9836-734d2dca7b92","customer_id":65,"film_id":58,"date_of_rent":"2023-03-27","up_front_days":1,"charge":150,"date_of_return":"2023-03-27","surcharge":0}]} 
+ </msg>
+<msg timestamp="20230327 12:25:25.447" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230327 12:25:25.439" endtime="20230327 12:25:25.447"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230327 12:25:25.448" endtime="20230327 12:25:25.449"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.json()}[id]</arg>
+<arg>${customer_id}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20230327 12:25:25.450" endtime="20230327 12:25:25.450"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.json()}[rentals][0][film_id]</arg>
+<arg>${film_id}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20230327 12:25:25.451" endtime="20230327 12:25:25.451"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.json()}[rentals][0][customer_id]</arg>
+<arg>${customer_id}</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" starttime="20230327 12:25:25.452" endtime="20230327 12:25:25.453"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.json()}[rentals][0][up_front_days]</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20230327 12:25:25.454" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230327 12:25:25.453" endtime="20230327 12:25:25.454"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${response.json()}[rentals][0][surcharge]</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20230327 12:25:25.457" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20230327 12:25:25.454" endtime="20230327 12:25:25.457"/>
+</kw>
+<status status="PASS" starttime="20230327 12:25:25.438" endtime="20230327 12:25:25.457"/>
+</test>
+<status status="PASS" starttime="20230327 12:25:25.286" endtime="20230327 12:25:25.458"/>
 </suite>
-<status status="PASS" starttime="20230327 11:36:05.038" endtime="20230327 11:36:05.169"/>
+<status status="PASS" starttime="20230327 12:25:25.258" endtime="20230327 12:25:25.459"/>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="0" skip="0">All Tests</stat>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="4" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
-<stat pass="4" fail="0" skip="0" id="s1-s1" name="Tests">Tests.Tests</stat>
+<stat pass="6" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="6" fail="0" skip="0" id="s1-s1" name="Tests">Tests.Tests</stat>
 </suite>
 </statistics>
 <errors>
